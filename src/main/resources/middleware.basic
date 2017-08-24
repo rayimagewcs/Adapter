@@ -1,0 +1,30 @@
+
+{
+	"adminServiceUrl": "127.0.0.1:8083",
+	"webservice": {
+		"firmA": {
+			"wsdl": "",
+			"namespace": "",
+			"method": {
+				"face": "registerFace",
+				"vehical": "registerVehical"
+			}
+		}
+	},
+	"socket": {
+		"firmA": {
+			"ip": "",
+			"port": ""
+		}
+	},
+	"kafka": {
+      "key.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+      "value.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+      "bootstrap.servers": "192.168.65.94:9092"
+    },
+	"topic": "kafkamq",
+	"class": {
+		"face": "com.thinvent.middleware.handler.impl.FaceRegisterImpl",
+		"vehical": "com.thinvent.middleware.handler.impl.VehicalRegisterImpl"
+	}
+}
