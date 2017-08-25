@@ -24,7 +24,7 @@
     },
 	"topic": "kafkamq",
 	"class": {
-		"face": "com.thinvent.middleware.handler.impl.FaceRegisterImpl",
-		"vehical": "com.thinvent.middleware.handler.impl.VehicalRegisterImpl"
+		"face": "com.thinvent.middleware.outer.service.impl.FaceRegisterServiceImpl",
+		"vehical": "com.thinvent.middleware.outer.service.impl.VehicalRegisterServiceImpl"
 	}
 }

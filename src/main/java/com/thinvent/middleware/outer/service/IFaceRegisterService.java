@@ -1,8 +1,8 @@
-package com.thinvent.middleware.adapt;
+package com.thinvent.middleware.outer.service;
 
 import com.thinvent.library.exception.ThinventBaseException;
 import com.thinvent.middleware.model.ThinventTemplate;
 
-public interface IFaceAdapt {
+public interface IFaceRegisterService {
 	public String registerFaceTemplate(ThinventTemplate template) throws ThinventBaseException;
 }

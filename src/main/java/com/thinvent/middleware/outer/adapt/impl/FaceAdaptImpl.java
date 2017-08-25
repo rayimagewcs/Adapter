@@ -1,8 +1,8 @@
-package com.thinvent.middleware.adapt.impl;
+package com.thinvent.middleware.outer.adapt.impl;
 
 import com.thinvent.library.exception.ThinventBaseException;
-import com.thinvent.middleware.adapt.IFaceAdapt;
 import com.thinvent.middleware.model.ThinventTemplate;
+import com.thinvent.middleware.outer.adapt.IFaceAdapt;
 
 public class FaceAdaptImpl implements IFaceAdapt {
 

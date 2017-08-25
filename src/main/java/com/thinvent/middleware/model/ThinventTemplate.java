@@ -5,7 +5,7 @@ import java.util.Date;
 public abstract class ThinventTemplate {
 	protected int id; 				// 模板id
 	protected String featureData; 	// 特征数据
-	protected byte[] img; 			// 图片
+	protected byte[] fullImage; 			// 全景图片
 	protected String createUser;	// 创建人
 	protected String updateUser;	// 更新人
 	protected Date createTime; 		// 创建时间
@@ -28,11 +28,11 @@ public abstract class ThinventTemplate {
 	}
 
 	public byte[] getImg() {
-		return img;
+		return fullImage;
 	}
 
 	public void setImg(byte[] img) {
-		this.img = img;
+		this.fullImage = img;
 	}
 
 	public String getCreateUser() {
