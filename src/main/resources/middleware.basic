@@ -1,6 +1,7 @@
 
 {
 	"adminServiceUrl": "127.0.0.1:8083",
+	"messageServiceUrl": "127.0.0.1:8091",
 	"webservice": {
 		"firmA": {
 			"wsdl": "",

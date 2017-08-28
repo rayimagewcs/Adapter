@@ -2,9 +2,9 @@ package com.thinvent.middleware.outer.adapt.impl;
 
 import com.thinvent.library.exception.ThinventBaseException;
 import com.thinvent.middleware.model.ThinventTemplate;
-import com.thinvent.middleware.outer.adapt.IVehicleAdapt;
+import com.thinvent.middleware.outer.adapt.IVehicleRegisterAdapt;
 
-public class VehicleAdaptImpl implements IVehicleAdapt {
+public class VehicleRegisterAdaptImpl implements IVehicleRegisterAdapt {
 
 	@Override
 	public String registerVehicleTemplate(ThinventTemplate template) throws ThinventBaseException {

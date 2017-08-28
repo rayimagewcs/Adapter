@@ -17,11 +17,10 @@ public class WarningAdaptImpl implements IWarningAdapt {
 	private String basicUrl = ServiceConfig.getServiceConfig("middleware.basic", Constants.messageServiceUrlKey);
 
 	@Override
-	public void process(String warningInfo) throws ThinventBaseException {
-		Message msg = new Message(warningInfo);
+	public void process(Message message) throws ThinventBaseException {
 		String url = basicUrl + "message/send";
 		Map<String, Object> param = new HashMap();
-		param.put("message", msg);
+		param.put("message", message);
 		GetPostUtil.sendPost(url, param.toString());
 	}
 
