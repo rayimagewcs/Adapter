@@ -1,10 +1,8 @@
 package com.thinvent.middleware.inner.adapt.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSON;
 import com.thinvent.library.Constants;
 import com.thinvent.library.config.ServiceConfig;
 import com.thinvent.library.exception.ThinventBaseException;
@@ -14,14 +12,13 @@ import com.thinvent.middleware.inner.adapt.IWarningAdapt;
 
 @Service
 public class WarningAdaptImpl implements IWarningAdapt {
-	private String basicUrl = ServiceConfig.getServiceConfig("middleware.basic", Constants.messageServiceUrlKey);
+	private String basicUrl = ServiceConfig.getServiceConfig(Constants.adapterBasicService, Constants.messageServiceUrlKey);
 
 	@Override
 	public void process(Message message) throws ThinventBaseException {
-		String url = basicUrl + "message/send";
-		Map<String, Object> param = new HashMap();
-		param.put("message", message);
-		GetPostUtil.sendPost(url, param.toString());
+		String url = basicUrl + "message/push";
+		String param = JSON.toJSONString(message.toString());
+		GetPostUtil.sendPost(url, param);
 	}
 
 }

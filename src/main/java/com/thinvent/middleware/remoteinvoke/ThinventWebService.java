@@ -6,9 +6,9 @@ import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ThinventWebService {
+public class ThinventWebservice {
 	
-	public Object[] invoke(String namespace, String wsdlUrl, String method, Object param) {
+	public static Object[] invoke(String namespace, String wsdlUrl, String method, Object param) {
 		JaxWsDynamicClientFactory factory = JaxWsDynamicClientFactory.newInstance();
 		Client client = factory.createClient(wsdlUrl);
 		Object[] obj = null;

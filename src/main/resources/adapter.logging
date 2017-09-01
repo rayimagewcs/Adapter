@@ -2,7 +2,7 @@
   "logging": {
     "file": "logs/adapter.log",
     "level": {
-      "org.springframework": "info",
+      "org.springframework": "debug",
       "root": "Info",
       "com.thinvent": "debug"
     }

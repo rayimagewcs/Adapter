@@ -35,31 +35,33 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
 		@Override
 		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 				throws Exception {
+			@SuppressWarnings("unused")
 			String tokenIn = request.getHeader(Constants.TOKEN_KEY);
-			// 判断是否携带token
-			if ("login".equals(LogUtil.stringIntercept(request.getRequestURI()))) {
-				return true;
-			}
-			if (null != tokenIn && !"".equals(tokenIn)) {
-				try {
-					// 验证token合法性
-					Claims claims = JWTConfig.parseJWT(tokenIn);
-					// token续约
-					if ((claims.getExpiration().getTime() - System.currentTimeMillis()) < 1000 * 60 * 10) {
-						String subject = claims.getSubject();
-						String jwtUUID = UUIDUtil.getUuid();
-						String tokenOut = JWTConfig.createJWT(jwtUUID, subject, Constants.JWT_TTL);
-						response.addHeader(Constants.TOKEN_KEY, tokenOut);
-					}
-					return true;
-				} catch (Exception e) {
-					// token不合法
-					log.info(e.getMessage(), e);
-					response.sendError(TvtExceptionEnum.DATA_VER_RELOAD_ERROR.getIndex(),
-							TvtExceptionEnum.DATA_VER_RELOAD_ERROR.getName());
-				}
-			}
-			return false;
+//			// 判断是否携带token
+//			if ("login".equals(LogUtil.stringIntercept(request.getRequestURI()))) {
+//				return true;
+//			}
+//			if (null != tokenIn && !"".equals(tokenIn)) {
+//				try {
+//					// 验证token合法性
+//					Claims claims = JWTConfig.parseJWT(tokenIn);
+//					// token续约
+//					if ((claims.getExpiration().getTime() - System.currentTimeMillis()) < 1000 * 60 * 10) {
+//						String subject = claims.getSubject();
+//						String jwtUUID = UUIDUtil.getUuid();
+//						String tokenOut = JWTConfig.createJWT(jwtUUID, subject, Constants.JWT_TTL);
+//						response.addHeader(Constants.TOKEN_KEY, tokenOut);
+//					}
+//					return true;
+//				} catch (Exception e) {
+//					// token不合法
+//					log.info(e.getMessage(), e);
+//					response.sendError(TvtExceptionEnum.DATA_VER_RELOAD_ERROR.getIndex(),
+//							TvtExceptionEnum.DATA_VER_RELOAD_ERROR.getName());
+//				}
+//			}
+//			return false;
+			return true;
 		}
 
 		@Override

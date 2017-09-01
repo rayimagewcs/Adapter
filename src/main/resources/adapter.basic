@@ -1,14 +1,18 @@
 
 {
-	"adminServiceUrl": "127.0.0.1:8083",
-	"messageServiceUrl": "127.0.0.1:8091",
+	"adminServiceUrl": "http://127.0.0.1:8083/",
+	"messageServiceUrl": "http://127.0.0.1:8091/",
 	"webservice": {
 		"firmA": {
 			"wsdl": "",
 			"namespace": "",
 			"method": {
 				"face": "registerFace",
-				"vehical": "registerVehical"
+				"vehicle": "registerVehicle"
+			},
+			"param": {
+				"face": "",
+				"vehicle": ""
 			}
 		}
 	},
@@ -25,7 +29,7 @@
     },
 	"topic": "kafkamq",
 	"class": {
-		"face": "com.thinvent.middleware.outer.service.impl.FaceRegisterServiceImpl",
-		"vehical": "com.thinvent.middleware.outer.service.impl.VehicalRegisterServiceImpl"
+		"face": "com.thinvent.middleware.outer.adapt.impl.FaceRegisterAdaptImpl",
+		"vehicle": "com.thinvent.middleware.outer.adapt.impl.VehicleRegisterAdaptImpl"
 	}
 }

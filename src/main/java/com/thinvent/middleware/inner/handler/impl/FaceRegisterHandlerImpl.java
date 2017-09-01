@@ -1,26 +1,21 @@
 package com.thinvent.middleware.inner.handler.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.thinvent.library.Constants;
 import com.thinvent.library.config.ServiceConfig;
 import com.thinvent.library.exception.ThinventBaseException;
-import com.thinvent.middleware.inner.adapt.IFaceAdapt;
 import com.thinvent.middleware.inner.handler.IFaceRegisterHandler;
-import com.thinvent.middleware.model.ThinventTemplate;
 import com.thinvent.middleware.outer.adapt.IFaceRegisterAdapt;
 import com.thinvent.middleware.outer.adapt.impl.FaceRegisterAdaptImpl;
 
 @Service
 public class FaceRegisterHandlerImpl implements IFaceRegisterHandler {
 	
-	@Autowired
-	private IFaceAdapt faceAdapt;
-	
 	private IFaceRegisterAdapt faceRegisterAdapt;
 	
 	public FaceRegisterHandlerImpl() throws Exception {
-		String faceClass = ServiceConfig.getServiceConfig("middleware.basic", "class.face");
+		String faceClass = ServiceConfig.getServiceConfig(Constants.adapterBasicService, "class.face");
 		if (faceClass != null && !"".equals(faceClass)) {
 			faceRegisterAdapt = (IFaceRegisterAdapt) Class.forName(faceClass).newInstance();
 		} else {
@@ -29,11 +24,13 @@ public class FaceRegisterHandlerImpl implements IFaceRegisterHandler {
 	}
 	
 	@Override
-	public void saveFaceTemplate(ThinventTemplate template) throws ThinventBaseException {
-		String result = faceRegisterAdapt.registerFaceTemplate(template);
-		if (result != null && !"".equals(result)) {
-			faceAdapt.saveFaceTemplate(template);
-		}
+	public String registerFaceTemplate(String json) throws ThinventBaseException {
+		return faceRegisterAdapt.registerFace(json);
 	}
 	
+	@Override
+	public String register(String json) throws ThinventBaseException {
+		return faceRegisterAdapt.register(json);
+	}
+
 }

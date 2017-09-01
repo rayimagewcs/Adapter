@@ -18,7 +18,7 @@ public class MidlewareApplication {
 	public static void main(String[] args) throws IOException, Exception {
 		InitService.init(new AdapterServiceSubscribe(), new AdapterServiceApplication().moduleList,	StringUtil.getConfigDir(args));
 		SpringApplication application = new SpringApplication(MidlewareApplication.class);
-		application.setDefaultProperties(ServiceConfig.loadSpringConfig("middleware"));
+		application.setDefaultProperties(ServiceConfig.loadSpringConfig("adapter"));
 		ApplicationContext app = application.run(args);
 		SpringContextUtil.setApplicationContext(app);
 	}
